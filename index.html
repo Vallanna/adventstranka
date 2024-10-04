@@ -1,86 +1,10 @@
 <!DOCTYPE html>
 <html lang="sk">
 <head>
+    <link rel='stylesheet' href="stylesheet.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adventný OMAR</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            width: 90%;
-            height: 90%;
-            margin: 20px auto;
-            padding: 20px;
-            background-color: white;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            overflow: auto;
-        }
-        input[type="text"], input[type="email"], input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-        }
-        button {
-            width: 100%;
-            padding: 10px;
-            background-color: #28a745;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover {
-            background-color: #218838;
-        }
-        nav a {
-            margin-right: 10px;
-            text-decoration: none;
-            color: #007bff;
-        }
-        .hidden {
-            display: none;
-        }
-        .task-form, .rules, .task-list, .score-table, .home {
-            display: none;
-        }
-        .task-list ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            width: 100px;
-        }
-        .task-list li {
-            background-color: #007bff;
-            color: white;
-            padding: 10px;
-            margin: 5px 0;
-            text-align: center;
-            cursor: pointer;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table, th, td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-        th {
-            background-color: #f8f9fa;
-        }
-    </style>
 </head>
 <body>
 
@@ -157,107 +81,30 @@
         <h3>Poradie Tímov</h3>
         <table>
             <thead>
-                <tr>
-                    <th>Meno Tímu</th>
-                    <th>Zloženie Tímu</th>
-                    <th>Počet Bodov</th>
-                </tr>
+            <tr>
+                <th>Meno Tímu</th>
+                <th>Zloženie Tímu</th>
+                <th>Počet Bodov</th>
+            </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Tím 1</td>
-                    <td>Člen 1, Člen 2</td>
-                    <td>10</td>
-                </tr>
-                <tr>
-                    <td>Tím 2</td>
-                    <td>Člen 3, Člen 4</td>
-                    <td>8</td>
-                </tr>
-                <!-- Ďalšie tímy -->
+            <tr>
+                <td>Tím 1</td>
+                <td>Člen 1, Člen 2</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>Tím 2</td>
+                <td>Člen 3, Člen 4</td>
+                <td>8</td>
+            </tr>
+            <!-- Ďalšie tímy -->
             </tbody>
         </table>
     </div>
 </div>
 
-<script>
-    // Navigácia medzi úvodnou stránkou a formulármi
-    document.getElementById('registerBtn').addEventListener('click', function() {
-        document.getElementById('startPage').classList.add('hidden');
-        document.getElementById('loginForm').classList.remove('hidden');
-    });
-    
-    document.getElementById('loginBtn').addEventListener('click', function() {
-        document.getElementById('startPage').classList.add('hidden');
-        document.getElementById('loginForm').classList.remove('hidden');
-    });
-
-    // Registrácia/Prihlásenie
-    document.getElementById('teamForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-
-        const teamName = document.getElementById('teamName').value;
-        const email = document.getElementById('email').value;
-        const password = document.getElementById('password').value;
-
-        // Vygenerovanie 6-miestneho kódu (klientská časť - pre produkciu treba server-side)
-        const teamCode = Math.random().toString(36).substr(2, 6).toUpperCase();
-
-        document.getElementById('teamCode').innerText = `Váš unikátny kód tímu: ${teamCode}`;
-        document.getElementById('teamCode').classList.remove('hidden');
-
-        // Skrytie prihlasovacieho formulára a zobrazenie dashboardu
-        document.getElementById('loginForm').classList.add('hidden');
-        document.getElementById('dashboard').classList.remove('hidden');
-        document.getElementById('homePage').style.display = 'block';
-    });
-
-    // Navigácia medzi podstránkami
-    document.getElementById('homeLink').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('homePage').style.display = 'block';
-        document.getElementById('taskForm').style.display = 'none';
-        document.getElementById('rules').style.display = 'none';
-        document.getElementById('taskList').style.display = 'none';
-        document.getElementById('scoreTable').style.display = 'none';
-    });
-
-    document.getElementById('uploadTasksLink').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('homePage').style.display = 'none';
-        document.getElementById('taskForm').style.display = 'block';
-        document.getElementById('rules').style.display = 'none';
-        document.getElementById('taskList').style.display = 'none';
-        document.getElementById('scoreTable').style.display = 'none';
-    });
-
-    document.getElementById('rulesLink').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('homePage').style.display = 'none';
-        document.getElementById('taskForm').style.display = 'none';
-        document.getElementById('rules').style.display = 'block';
-        document.getElementById('taskList').style.display = 'none';
-        document.getElementById('scoreTable').style.display = 'none';
-    });
-
-    document.getElementById('tasksLink').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('homePage').style.display = 'none';
-        document.getElementById('taskForm').style.display = 'none';
-        document.getElementById('rules').style.display = 'none';
-        document.getElementById('taskList').style.display = 'block';
-        document.getElementById('scoreTable').style.display = 'none';
-    });
-
-    document.getElementById('scoreTableLink').addEventListener('click', function(event) {
-        event.preventDefault();
-        document.getElementById('homePage').style.display = 'none';
-        document.getElementById('taskForm').style.display = 'none';
-        document.getElementById('rules').style.display = 'none';
-        document.getElementById('taskList').style.display = 'none';
-        document.getElementById('scoreTable').style.display = 'block';
-    });
-</script>
+<script src="script.js"></script>
 
 </body>
 </html>
