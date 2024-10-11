@@ -1,105 +1,28 @@
 <!DOCTYPE html>
-<html lang="sk">
+<html lang="en">
 <head>
-    <link rel='stylesheet' href="stylesheet.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adventný OMAR</title>
+    <title>Main Page</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- Úvodná stránka s možnosťou prihlásiť sa alebo zaregistrovať -->
-<div class="container" id="startPage">
-    <h2>Vitajte v Adventnom OMAR</h2>
-    <button id="registerBtn">Registrácia</button>
-    <button id="loginBtn">Prihlásenie</button>
-</div>
-
-<!-- Prihlásenie / Registrácia -->
-<div class="container hidden" id="loginForm">
-    <h2>Registrácia / Prihlásenie Tímu</h2>
-    <form id="teamForm">
-        <input type="text" id="teamName" placeholder="Názov Tímu" required>
-        <input type="email" id="email" placeholder="Kontaktný E-mail" required>
-        <input type="password" id="password" placeholder="Heslo" required>
-        <button type="submit">Registrácia / Prihlásenie</button>
-    </form>
-    <p id="teamCode" class="hidden"></p>
-</div>
-
-<!-- Hlavná stránka po prihlásení -->
-<div class="container hidden" id="dashboard">
-    <h2>Adventný OMAR</h2>
-    <nav>
-        <a href="#" id="homeLink">Úvodná stránka</a>
-        <a href="#" id="uploadTasksLink">Odovzdávanie Úloh</a>
-        <a href="#" id="rulesLink">Pravidlá Súťaže</a>
-        <a href="#" id="tasksLink">Úlohy</a>
-        <a href="#" id="scoreTableLink">Poradie Tímov</a>
-    </nav>
-
-    <!-- Úvodná stránka po prihlásení -->
-    <div id="homePage" class="home">
-        <h3>Vitajte v Adventnom OMAR</h3>
-        <p>Tu sú základné informácie o súťaži...</p>
+    <div class="container">
+        <h2>Welcome to the Portal</h2>
+        <button id="registerBtn">Register</button>
+        <button id="loginBtn">Log In</button>
     </div>
 
-    <!-- Odovzdávanie úloh -->
-    <div id="taskForm" class="task-form">
-        <h3>Odovzdanie Úlohy</h3>
-        <form id="taskSubmissionForm">
-            <input type="text" id="taskName" placeholder="Názov úlohy" required>
-            <button type="submit">Odovzdať úlohu</button>
-        </form>
-    </div>
+    <script>
+        // Redirect to Register page
+        document.getElementById('registerBtn').addEventListener('click', function() {
+            window.location.href = 'register.html';
+        });
 
-    <!-- Pravidlá súťaže -->
-    <div id="rules" class="rules">
-        <h3>Pravidlá Súťaže</h3>
-        <p>Každý deň bude niekde na našej škole skryté zadanie. Vašou úlohou bude nájsť ho, vyriešiť úlohu a odovzdať ju
-            čo najskôr. Na ďalší deň </p>
-        <!-- Pravidlá môžu byť podrobnejšie podľa potreby -->
-    </div>
-
-    <!-- Zoznam úloh (1-9) -->
-    <div id="taskList" class="task-list">
-        <h3>Úlohy</h3>
-        Tu nájdete aktuálny hint na úlohy. Odovzdávať odpoveď môžete nižšie.
-        <input type="text" placeholder="Odpoveď" required>
-        <button type="submit">Odovzdať úlohu</button>
-
-
-    </div>
-
-    <!-- Tabuľka s poradím tímov -->
-    <div id="scoreTable" class="score-table">
-        <h3>Poradie Tímov</h3>
-        <table>
-            <thead>
-            <tr>
-                <th>Meno Tímu</th>
-                <th>Zloženie Tímu</th>
-                <th>Počet Bodov</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>Tím 1</td>
-                <td>Člen 1, Člen 2</td>
-                <td>10</td>
-            </tr>
-            <tr>
-                <td>Tím 2</td>
-                <td>Člen 3, Člen 4</td>
-                <td>8</td>
-            </tr>
-            <!-- Ďalšie tímy -->
-            </tbody>
-        </table>
-    </div>
-</div>
-
-<script src="script.js"></script>
-
+        // Redirect to Login page
+        document.getElementById('loginBtn').addEventListener('click', function() {
+            window.location.href = 'login.html';
+        });
+    </script>
 </body>
 </html>

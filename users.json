@@ -1,0 +1,10 @@
+[
+    {
+        "name": "John Doe",
+        "password": "idk",
+        "members": ["abc", "def", "ghi"],
+        "score": 0,
+        "time": 0.0,
+        "wrong_answers":0
+    }
+]

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Team Rankings</h2>
+        <table id="teamsTable">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Team Name</th>
+                    <th>Score</th>
+                    <th>Completion Time</th>
+                    <th>Wrong Answers</th>
+                </tr>
+            </thead>
+            <tbody id="teamsTableBody">
+                <!-- Data will be dynamically inserted here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Fetch teams data from the Python API and populate the table
+        fetch('https://matuslibak.pythonanywhere.com/all_users') // Adjusted URL to point to the Python API
+            .then(response => response.json())
+            .then(teams => {
+                const tableBody = document.getElementById('teamsTableBody');
+                tableBody.innerHTML = ''; // Clear the table first
+
+                teams.forEach((team, index) => {
+                    const row = document.createElement('tr');
+                    
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${team.name}</td>
+                        <td>${team.score}</td>
+                        <td>${team.time}</td>
+                        <td>${team.wrong_answers}</td>
+                    `;
+                    
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching team data:', error);
+            });
+    </script>
+</body>
+</html>
