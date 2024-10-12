@@ -38,7 +38,7 @@ document.getElementById('registerBtn').addEventListener('click', function() {
         name: teamName,
         password: password,
         members: members,
-        score: 0,
+        scores: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         time: 0.0,
         wrong_answers: 0
     };

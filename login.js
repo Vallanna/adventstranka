@@ -20,10 +20,13 @@ document.getElementById('loginBtn').addEventListener('click', function() {
     .then(response => response.json())
     .then(data => {
         if (data.status === 'success') {
-            // Redirect to the problem submission page or display user info
+            // Store the team information in localStorage
+            localStorage.setItem('loggedInTeam', JSON.stringify(data.user));
+            
+            // Redirect to problem submission page
             window.location.href = 'problem.html';
         } else {
-            // Show error message
+            // Handle error
             alert(data.message);
         }
     })

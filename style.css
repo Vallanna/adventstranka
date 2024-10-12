@@ -81,3 +81,19 @@ button {
 #submitAnswerBtn {
     background-color: #28a745; /* Green color */
 }
+#backToIndexBtn,
+#dashboardBtn {
+    background-color: #007bff; /* Blue for Index Button */
+}
+
+#backToIndexBtn:hover,
+#dashboardBtn:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+#downloadProblemBtn {
+    background-color: #009688; /* Blue for Index Button */
+}
+#downloadProblemBtn:hover {
+    background-color: #00796b; /* Blue for Index Button */
+}
