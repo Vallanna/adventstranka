@@ -11,21 +11,28 @@
         <h2>Welcome to the Portal</h2>
         <button id="registerBtn">Register</button>
         <button id="loginBtn">Log In</button>
+        <button id="downloadProblemBtn">Stiahnuť pravidla</button>
         <button id="dashboardBtn">Výledkovka</button>
     </div>
 
     <script>
-        // Redirect to Register page
         document.getElementById('registerBtn').addEventListener('click', function() {
             window.location.href = 'register.html';
         });
-
-        // Redirect to Login page
         document.getElementById('loginBtn').addEventListener('click', function() {
             window.location.href = 'login.html';
         });
         document.getElementById('dashboardBtn').addEventListener('click', function() {
             window.location.href = 'dashboard.html';
+        });
+        document.getElementById('downloadProblemBtn').addEventListener('click', function() {
+            const filePath = `problems/rules.pdf`;
+            const link = document.createElement('a');
+            link.href = filePath;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         });
     </script>
 </body>
