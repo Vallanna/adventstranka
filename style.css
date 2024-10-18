@@ -32,6 +32,17 @@ body {
     margin-bottom: 5px; /* Space between input and remove button */
 }
 
+input[type="text"], input[type="password"], textarea {
+    width: 90%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 2px solid #ccc;
+    font-size: 16px;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
 button {
     width: 100%;
     padding: 10px;
@@ -78,7 +89,8 @@ button {
     background-color: #218838; /* Darker green on hover */
 }
 
-#submitAnswerBtn {
+#submitAnswerBtn,
+#submitLateAnswerBtn {
     background-color: #28a745; /* Green color */
 }
 #backToIndexBtn,
@@ -91,9 +103,21 @@ button {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-#downloadProblemBtn {
+#downloadProblemBtn,
+#downloadLateProblemBtn {
     background-color: #009688; /* Blue for Index Button */
 }
-#downloadProblemBtn:hover {
+#downloadProblemBtn:hover,
+#downloadLateProblemBtn:hover {
     background-color: #00796b; /* Blue for Index Button */
+}
+
+#goToLateSubmitBtn,
+#backToSubmitBtn {
+    background-color: orange;
+}
+
+#goToLateSubmitBtn:hover,
+#backToSubmitBtn:hover {
+    background-color: darkorange;
 }

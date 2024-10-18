@@ -114,5 +114,35 @@ def submit_answer():
         "message": "Unknown user."
     }   
 
+@app.route('/late_answer', methods=['POST'])
+def late_answer():
+    submit = request.json
+    users = load_users()
+    for u in users:
+        if u['name'] == submit['name']:
+            if submit['answer'] == str(ANSWERS[int(submit['day'])-1]): #dorobit
+                if u['scores'][int(submit['day'])-1] == 0:
+                    u['scores'][int(submit['day'])-1] = 3
+                    u['time'] += time_since_last_6am()
+                    write_users(users)
+                return {
+                    "status": "success",
+                    "isCorrect": True,
+                    "message": "Correct answer!"
+                }
+            else:
+                u['wrong_answers'] += 1
+                write_users(users)
+                return {
+                    "status": "success",
+                    "isCorrect": False,
+                    "message": "Wrong answer."
+                }
+    return {
+        "status": "fail",
+        "isCorrect": False,
+        "message": "Unknown user."
+    } 
+
 if __name__ == '__main__':
     app.run(debug=True)
