@@ -13,7 +13,7 @@ const currentDay = getCompetitionDay(); // Assuming this returns the current day
 for (let day = 1; day < currentDay; day++) {
     const option = document.createElement('option');
     option.value = day;
-    option.textContent = `Day ${day}`; // Use textContent instead
+    option.textContent = `Deň ${day}`; // Use textContent instead
     daySelect.appendChild(option);
 }
 
@@ -23,7 +23,7 @@ document.getElementById('submitLateAnswerBtn').addEventListener('click', functio
     const answer = document.getElementById('lateAnswer').value;
 
     if (!answer) {
-        alert('Please enter an answer.');
+        alert('Zadaj odpoveď.');
         return;
     }
 
@@ -43,14 +43,14 @@ document.getElementById('submitLateAnswerBtn').addEventListener('click', functio
     .then(data => {
         console.log(data)
         if (data.isCorrect) {
-            alert('Answer submitted successfully and it is correct!');
+            alert('Odpoveď bola úspešne odovzdaná a je správna!');
         } else {
-            alert('Answer submitted successfully but it is incorrect.');
+            alert('Odpoveď bola úspešne odovzdaná, ale je nesprávna.');
         }
     })
     .catch(error => {
         console.error('Error:', error);
-        alert('Failed to submit answer. Please try again.');
+        alert('Nepodarilo sa odovzdať úlohu. Prosím skúste znova.');
     });
 });
 
